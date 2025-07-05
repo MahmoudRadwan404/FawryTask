@@ -1,18 +1,18 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Shop {
     List<Product> products;
-
     public Shop() {
-        products = new ArrayList<Product>();
+        products = new ArrayList<>();
     }
     void createProduct(Product product) {
-        for (int i = 0; i < products.size(); i++) {
-            if (product.getProductName() == products.get(i).getProductName()) {
-                products.get(i).
+        for (Product value : products) {
+            if (Objects.equals(product.getProductName(), value.getProductName())) {
+                value.
                         setProductQuantity
-                                (product.getProductQuantity() + products.get(i).getProductQuantity());
+                                (product.getProductQuantity() + value.getProductQuantity());
                 return;
             }
         }
